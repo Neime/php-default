@@ -15,5 +15,5 @@ make composer c="install"
 
 ### Run PhpUnit
 ```
-make unit
+make unit c="tests"
 ```

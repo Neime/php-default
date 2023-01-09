@@ -9,6 +9,7 @@ COMPOSER = $(PHP_CONT) composer
 PHP      = $(PHP_CONT) php
 COMPOSER = $(PHP_CONT) composer
 PHPUNIT  = $(PHP_CONT) vendor/bin/phpunit
+PHPCSFIXER  = $(PHP_CONT) vendor/bin/php-cs-fixer
 
 build: ## Builds the Docker images
 	@$(DOCKER_COMP) build --pull --no-cache
@@ -31,3 +32,6 @@ composer: ## Run composer, pass the parameter "c=" to run a given command
 unit: ## List all phpunit commands or pass the parameter "c=" to run a given command
 	@$(eval c ?=)
 	@$(PHPUNIT) $(c)
+
+fixer: ## Php cs fixer
+	@$(PHPCSFIXER) --verbose fix src/
